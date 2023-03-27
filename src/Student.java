@@ -47,7 +47,7 @@ public class Student {
 
   @Override
   public String toString() {
-    return maSv + ' ' +  name + ' ' + address + ' ' + phoneNumber + ' ';
+    return maSv + " " + name + " " + address + " " + phoneNumber+ " ";
   }
 
 
