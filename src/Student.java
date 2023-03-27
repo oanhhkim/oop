@@ -17,7 +17,7 @@ public class Student {
     return maSv;
   }
 
-  public void setMaSv(int code) {
+  public void setMaSv(int maSv) {
     this.maSv = maSv;
   }
 
