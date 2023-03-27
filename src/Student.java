@@ -1,26 +1,24 @@
 public class Student {
 
-  private int code;
-  private String name;
-  private String address;
-  private String phoneNumber;
+  private int maSv;
+  private String name, address, phoneNumber;
 
   public Student() {
   }
 
-  public Student(int code, String name, String address, String phoneNumber) {
-    this.code = code;
+  public Student(int maSV, String name, String address, String phoneNumber) {
+    this.maSv = maSV;
     this.name = name;
     this.address = address;
     this.phoneNumber = phoneNumber;
   }
 
-  public int getCode() {
-    return code;
+  public int getMaSv() {
+    return maSv;
   }
 
-  public void setCode(int code) {
-    this.code = code;
+  public void setMaSv(int code) {
+    this.maSv = maSv;
   }
 
   public String getName() {
@@ -49,7 +47,7 @@ public class Student {
 
   @Override
   public String toString() {
-    return code + ' ' +  name + ' ' + address + ' ' + phoneNumber + ' ';
+    return maSv + ' ' +  name + ' ' + address + ' ' + phoneNumber + ' ';
   }
 
 

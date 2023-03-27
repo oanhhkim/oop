@@ -3,10 +3,10 @@ import java.util.Scanner;
 public class Main {
 
   public static void main(String[] args) {
-    Scanner scanner = new Scanner(System.in);
     Student student = new Student();
+    Scanner scanner = new Scanner(System.in);
     System.out.print("Nhap ma sinh vien: ");
-    student.setCode(scanner.nextInt());scanner.nextLine();
+    student.setMaSv(Integer.parseInt(scanner.nextLine()));
     System.out.print("Nhap ho va ten: ");
     student.setName(scanner.nextLine());
     System.out.print("Nhap dia chi: ");
