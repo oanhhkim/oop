@@ -6,9 +6,7 @@ public class Main {
     Student student = new Student();
     Scanner scanner = new Scanner(System.in);
     System.out.print("Nhap ma sinh vien: ");
-    student.setMaSv(scanner.nextInt());
-//    student.setMaSv(Integer.parseInt(scanner.nextLine()));
-    scanner.nextLine();
+    student.setMaSv(Integer.parseInt(scanner.nextLine()));
     System.out.print("Nhap ho va ten: ");
     student.setName(scanner.nextLine());
     System.out.print("Nhap dia chi: ");
