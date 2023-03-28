@@ -4,16 +4,7 @@ public class Main {
 
   public static void main(String[] args) {
     Student student = new Student();
-    Scanner scanner = new Scanner(System.in);
-    System.out.print("Nhap ma sinh vien: ");
-    student.setMaSv(Integer.parseInt(scanner.nextLine()));
-    System.out.print("Nhap ho va ten: ");
-    student.setName(scanner.nextLine());
-    System.out.print("Nhap dia chi: ");
-    student.setAddress(scanner.nextLine());
-    System.out.print("Nhap so dien thoai: ");
-    student.setPhoneNumber(scanner.nextLine());
-    System.out.println(student);
-
+    StudentManage manage = new StudentManage();
+    manage.display(student);
   }
 }
