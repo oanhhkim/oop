@@ -1,11 +1,12 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
 public class StudentManage {
 
   public static Scanner scanner = new Scanner(System.in);
-  public List<Student> list;
+  private List<Student> list;
   public StudentManage(){
     list = new ArrayList<>();
   }
@@ -21,7 +22,7 @@ public class StudentManage {
     System.out.print("Nhap so dien thoai: ");
     String phoneNumber = scanner.nextLine();
 //    return new Student(maSv, name, address, phoneNumber);
-    list.add(new Student(student.getMaSv(),student.getName(),student.getAddress(), student.getPhoneNumber()));
+    list.add(new Student(maSv, name, address, phoneNumber));
   }
 
   public void display(){
@@ -30,6 +31,15 @@ public class StudentManage {
   }
 
   public void arrangeByMaSv(){
+    //comparator
+    //Collections.sort(list);
+    System.out.println();
+  }
+  private boolean checkStudentId() {
+
+  }
+
+  private boolean checkPhoneNumber() {
 
   }
 }

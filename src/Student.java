@@ -49,8 +49,5 @@ public class Student {
   public String toString() {
     return maSv + " " + name + " " + address + " " + phoneNumber+ " ";
   }
-
-
-
 }
 
