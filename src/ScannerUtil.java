@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class ScannerUtil {
-  //static
+  public static Scanner scanner = new Scanner(System.in);
 }

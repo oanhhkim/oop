@@ -1,45 +1,58 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Scanner;
 
-public class StudentManage {
+public class StudentManage extends ScannerUtil {
 
-  public static Scanner scanner = new Scanner(System.in);
   private List<Student> list;
-  public StudentManage(){
+
+  public StudentManage() {
     list = new ArrayList<>();
   }
 
   public void add() {
-    Student student = new Student();
-    System.out.print("Nhap ma sinh vien: ");
+    System.out.print("Nhâp mã sinh viên: ");
     int maSv = Integer.parseInt(scanner.nextLine());
-    System.out.print("Nhap ho va ten: ");
+    System.out.print("Nhập họ và tên: ");
     String name = scanner.nextLine();
-    System.out.print("Nhap dia chi: ");
+    System.out.print("Nhập địa chỉ: ");
     String address = scanner.nextLine();
-    System.out.print("Nhap so dien thoai: ");
+    System.out.print("Nhập số điện thoại: ");
+    checkingPhoneNumber();
     String phoneNumber = scanner.nextLine();
-//    return new Student(maSv, name, address, phoneNumber);
     list.add(new Student(maSv, name, address, phoneNumber));
   }
 
-  public void display(){
+  public void ds() {
+    int t = Integer.parseInt(scanner.nextLine());
+    for (int i = 1; i <= t; i++) {
+      add();
+    }
+  }
+
+  public void display() {
     System.out.println("Danh sách sinh viên: ");
     System.out.println(list);
   }
 
-  public void arrangeByMaSv(){
-    //comparator
-    //Collections.sort(list);
-    System.out.println();
+
+  public void arrangeByMaSv() {
+    Collections.sort(list);
+    for (Student s : list) {
+      System.out.println(s);
+    }
   }
-  private boolean checkStudentId() {
 
-  }
+//  private boolean checkStudentId() {
+//
+//  }
 
-  private boolean checkPhoneNumber() {
-
+  private boolean checkingPhoneNumber() {
+    String phoneNumber = "\\d{7}";
+    String input = scanner.nextLine();
+    if(!input.matches(phoneNumber)){
+      return false;
+    }
+    return true;
   }
 }
