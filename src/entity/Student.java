@@ -1,4 +1,6 @@
-public class Student implements Comparable<Student> {
+package entity;
+
+public class Student {
 
   private int maSv;
   private String name, address, phoneNumber;
@@ -48,17 +50,6 @@ public class Student implements Comparable<Student> {
   @Override
   public String toString() {
     return maSv + " " + name + " " + address + " " + phoneNumber + " ";
-  }
-
-  @Override
-  public int compareTo(Student o) {
-    if (this.maSv > o.getMaSv()) {
-      return 1;
-    } else if (this.maSv < o.getMaSv()) {
-      return -1;
-    } else {
-      return 0;
-    }
   }
 }
 
