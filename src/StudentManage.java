@@ -11,30 +11,31 @@ public class StudentManage extends ScannerUtil {
   }
 
   public void add() {
-    System.out.print("Nhâp mã sinh viên: ");
-    int maSv = Integer.parseInt(scanner.nextLine());
-    System.out.print("Nhập họ và tên: ");
+    int maSv;
+    do {
+      System.out.print("Nhâp mã sinh viên: ");
+      maSv = Integer.parseInt(scanner.nextLine());
+    } while (!checkingStudentId(maSv));
+    System.out.print("Nhập họ tên: ");
     String name = scanner.nextLine();
     System.out.print("Nhập địa chỉ: ");
     String address = scanner.nextLine();
-    System.out.print("Nhập số điện thoại: ");
-    checkingPhoneNumber();
-    String phoneNumber = scanner.nextLine();
+    String phoneNumber;
+    do {
+      System.out.print("Nhập số điện thoại: ");
+      phoneNumber = scanner.nextLine();
+    } while (!checkingPhoneNumber(phoneNumber));
+
     list.add(new Student(maSv, name, address, phoneNumber));
   }
 
-  public void ds() {
-    int t = Integer.parseInt(scanner.nextLine());
-    for (int i = 1; i <= t; i++) {
+  public void studentList() {
+    System.out.print("Nhập số lượng sinh viên: ");
+    int test = Integer.parseInt(scanner.nextLine());
+    for (int i = 1; i <= test; i++) {
       add();
     }
   }
-
-  public void display() {
-    System.out.println("Danh sách sinh viên: ");
-    System.out.println(list);
-  }
-
 
   public void arrangeByMaSv() {
     Collections.sort(list);
@@ -43,14 +44,15 @@ public class StudentManage extends ScannerUtil {
     }
   }
 
-//  private boolean checkStudentId() {
-//
-//  }
+  private boolean checkingStudentId(int maSv) {
+    if (maSv <= 0) {
+      return false;
+    }
+    return true;
+  }
 
-  private boolean checkingPhoneNumber() {
-    String phoneNumber = "\\d{7}";
-    String input = scanner.nextLine();
-    if(!input.matches(phoneNumber)){
+  private boolean checkingPhoneNumber(String phoneNumber) {
+    if (phoneNumber.length() != 7) {
       return false;
     }
     return true;
