@@ -5,12 +5,11 @@ import comparator.ComparatorByGrade;
 import comparator.ComparatorByName;
 import entity.Student;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import util.ScannerUtil;
 
 public class StudentManage {
-
+  Student student = new Student();
   private static final int LENGTH_OF_STUDENT_ID = 10;
   private static final float MIN_LIMIT_OF_GRADE = 0;
   private static final float MAX_LIMIT_OF_GRADE = 10;
@@ -21,6 +20,7 @@ public class StudentManage {
   }
 
   public void add() {
+    int id = student.getId();
     System.out.print("Nhập tên sinh viên: ");
     String name = ScannerUtil.SCANNER.nextLine();
     float grade;
@@ -29,14 +29,16 @@ public class StudentManage {
       grade = Float.parseFloat(ScannerUtil.SCANNER.nextLine());
     } while (!checkingGradeInput(grade));
     String dob;
+    System.out.print("Nhập ngày sinh: ");
     dob = ScannerUtil.SCANNER.nextLine();
-    list.add(new Student(name, grade, dob));
+    list.add(new Student(id,name,grade,dob));
   }
 
   public void studentList() {
     System.out.print("Nhập số lượng sinh viên: ");
     int test = Integer.parseInt(ScannerUtil.SCANNER.nextLine());
     for (int i = 0; i < test; i++) {
+      student.setId(100+i);
       add();
     }
   }
@@ -64,10 +66,6 @@ public class StudentManage {
       System.out.println(st);
     }
   }
-
-  public void checkingDob(String dob) {
-  }
-
 
   public boolean checkingGradeInput(float grade) {
     if (grade < MIN_LIMIT_OF_GRADE && grade > MAX_LIMIT_OF_GRADE) {
