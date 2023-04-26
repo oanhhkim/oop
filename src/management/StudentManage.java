@@ -21,11 +21,6 @@ public class StudentManage {
   }
 
   public void add() {
-    int id;
-    do {
-      System.out.print("Nhập mã sinh viên: ");
-      id = Integer.parseInt(ScannerUtil.SCANNER.nextLine());
-    } while (!checkingStudentId(id));
     System.out.print("Nhập tên sinh viên: ");
     String name = ScannerUtil.SCANNER.nextLine();
     float grade;
@@ -35,7 +30,7 @@ public class StudentManage {
     } while (!checkingGradeInput(grade));
     String dob;
     dob = ScannerUtil.SCANNER.nextLine();
-    list.add(new Student(id, name, grade, dob));
+    list.add(new Student(name, grade, dob));
   }
 
   public void studentList() {

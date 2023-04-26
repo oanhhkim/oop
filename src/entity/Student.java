@@ -1,15 +1,14 @@
 package entity;
 
-import java.util.Date;
-
 public class Student {
 
   private int id;
   private String name;
   private float grade;
   private String dob;
+  private static int s_id = 100;
 
-  public Student() {
+  public Student(String name, float grade, String dob) {
   }
 
   public Student(int id, String name, float grade, String dob) {
@@ -49,6 +48,14 @@ public class Student {
 
   public void setDob(String dob) {
     this.dob = dob;
+  }
+
+  public static int getS_id() {
+    return s_id;
+  }
+
+  public static void setS_id(int s_id) {
+    Student.s_id = s_id;
   }
 
   @Override
