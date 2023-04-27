@@ -10,7 +10,6 @@ import util.ScannerUtil;
 
 public class StudentManage {
 
-  Student student = new Student();
   private static final float MIN_LIMIT_OF_GRADE = 0;
   private static final float MAX_LIMIT_OF_GRADE = 10;
   private List<Student> list;
