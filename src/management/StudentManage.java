@@ -30,7 +30,7 @@ public class StudentManage {
     String dob;
     System.out.print("Nhập ngày sinh: ");
     dob = ScannerUtil.SCANNER.nextLine();
-    String id = student.getId();
+    String id = "MSV" + String.format("%03d", list.size() + 1);
     list.add(new Student(id, name, grade, dob));
   }
 
@@ -38,7 +38,6 @@ public class StudentManage {
     System.out.print("Nhập số lượng sinh viên: ");
     int test = Integer.parseInt(ScannerUtil.SCANNER.nextLine());
     for (int i = 0; i < test; i++) {
-      student.setId("B19DCCN" + String.format("%03d", i + 1));
       add();
     }
   }
