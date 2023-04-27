@@ -9,8 +9,8 @@ import java.util.List;
 import util.ScannerUtil;
 
 public class StudentManage {
+
   Student student = new Student();
-  private static final int LENGTH_OF_STUDENT_ID = 10;
   private static final float MIN_LIMIT_OF_GRADE = 0;
   private static final float MAX_LIMIT_OF_GRADE = 10;
   private List<Student> list;
@@ -20,7 +20,6 @@ public class StudentManage {
   }
 
   public void add() {
-    int id = student.getId();
     System.out.print("Nhập tên sinh viên: ");
     String name = ScannerUtil.SCANNER.nextLine();
     float grade;
@@ -31,14 +30,15 @@ public class StudentManage {
     String dob;
     System.out.print("Nhập ngày sinh: ");
     dob = ScannerUtil.SCANNER.nextLine();
-    list.add(new Student(id,name,grade,dob));
+    String id = student.getId();
+    list.add(new Student(id, name, grade, dob));
   }
 
   public void studentList() {
     System.out.print("Nhập số lượng sinh viên: ");
     int test = Integer.parseInt(ScannerUtil.SCANNER.nextLine());
     for (int i = 0; i < test; i++) {
-      student.setId(100+i);
+      student.setId("B19DCCN" + String.format("%03d", i + 1));
       add();
     }
   }
@@ -59,6 +59,7 @@ public class StudentManage {
     }
   }
 
+  //nhập đi
   public void arrangeByName() {
     List<Student> sort = list;
     sort.sort(new ComparatorByName());
@@ -86,12 +87,5 @@ public class StudentManage {
     } else {
       return "Yếu";
     }
-  }
-
-  public boolean checkingStudentId(int id) {
-    if (id <= LENGTH_OF_STUDENT_ID) {
-      return false;
-    }
-    return true;
   }
 }

@@ -2,7 +2,7 @@ package entity;
 
 public class Student {
 
-  private int id;
+  private String id;
   private String name;
   private float grade;
   private String dob;
@@ -10,18 +10,18 @@ public class Student {
   public Student() {
   }
 
-  public Student(int id, String name, float grade, String dob) {
+  public Student(String id, String name, float grade, String dob) {
     this.id = id;
     this.name = name;
     this.grade = grade;
     this.dob = dob;
   }
 
-  public int getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(int id) {
+  public void setId(String id) {
     this.id = id;
   }
 
@@ -51,6 +51,6 @@ public class Student {
 
   @Override
   public String toString() {
-    return "B19DCCN" + id + " " + name + " " + grade + " " + dob;
+    return id +" "+  name + " " + grade + " " + dob;
   }
 }
