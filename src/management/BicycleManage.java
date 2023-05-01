@@ -25,9 +25,11 @@ public class BicycleManage {
     String team;
     team = ScannerUtil.SCANNER.nextLine();
     String id = getTeamId(team) + String.format("%03d", list.size() + 1);
-    System.out.print("Giờ cán đích: ");
     String time;
-    time = ScannerUtil.SCANNER.nextLine();
+    do {
+      System.out.print("Giờ cán đích: ");
+      time = ScannerUtil.SCANNER.nextLine();
+    } while (!checkTime(time));
     list.add(new Bicycle(id, name, team, time));
   }
 
@@ -52,6 +54,26 @@ public class BicycleManage {
       tem = tem + s.charAt(0);
     }
     return tem;
+  }
+
+  public boolean checkTime(String time) {
+    SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+    Date timeInput;
+    Date timeStart;
+    try {
+      timeStart = format.parse("07:00");
+    } catch (ParseException e) {
+      throw new RuntimeException(e);
+    }
+    try {
+      timeInput = format.parse(time);
+    } catch (ParseException e) {
+      throw new RuntimeException(e);
+    }
+    if (timeInput.before(timeStart)) {
+      return false;
+    }
+    return true;
   }
 }
 

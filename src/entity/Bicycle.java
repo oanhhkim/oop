@@ -55,20 +55,20 @@ public class Bicycle {
 
   public float calculateSpeed(String time) {
     SimpleDateFormat format = new SimpleDateFormat("HH:mm");
-    Date time_start;
+    Date timeStart;
     try {
-      time_start = format.parse("07:00");
+      timeStart = format.parse("07:00");
     } catch (ParseException e) {
       throw new RuntimeException(e);
     }
-    Date time_finish;
+    Date timeFinish;
     try {
-      time_finish = format.parse(time);
+      timeFinish = format.parse(time);
     } catch (ParseException e) {
       throw new RuntimeException(e);
     }
     float speed;
-    speed = (float) 100 / ((time_finish.getTime() - time_start.getTime())/3600000);
+    speed = (float) 100 / ((timeFinish.getTime() - timeStart.getTime()) / 3600000);
     return speed;
   }
 
