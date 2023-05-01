@@ -1,7 +1,6 @@
 package management;
 
-//import comparator.CompareByTime;
-
+import comparator.CompareByTime;
 import entity.Bicycle;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -18,7 +17,7 @@ public class BicycleManage {
     list = new ArrayList<>();
   }
 
-  public void add() throws ParseException {
+  public void add() {
     System.out.print("Tên: ");
     String name;
     name = ScannerUtil.SCANNER.nextLine();
@@ -29,43 +28,30 @@ public class BicycleManage {
     System.out.print("Giờ cán đích: ");
     String time;
     time = ScannerUtil.SCANNER.nextLine();
-    float speed = calculateSpeed(time);
-    list.add(new Bicycle(id, name, team, time, speed));
+    list.add(new Bicycle(id, name, team, time));
   }
 
-  public void bicycleList() throws ParseException {
+  public void bicycleList() {
     System.out.print("Nhập số lượng xe đua: ");
     int quantity = Integer.parseInt(ScannerUtil.SCANNER.nextLine());
     for (int i = 0; i < quantity; i++) {
       add();
     }
-    for (Bicycle b : list) {
-      System.out.println(b);
+    List<Bicycle> position = list;
+    position.sort(new CompareByTime());
+    for (int i = 0; i < position.size(); i++) {
+      System.out.println(position.get(i) + " " + Integer.toString(i + 1));
     }
   }
 
-  public float calculateSpeed(String time) throws ParseException {
-    String time_start = "07:00";
-    SimpleDateFormat format = new SimpleDateFormat("HH:mm");
-    Date time1 = format.parse(time_start);
-    Date time2 = format.parse(time);
-    float speed = 100 / ((float) (time2.getTime() - time1.getTime()) / 3600);
-    return speed;
-  }
-
-  public char getTeamId(String team) {
+  public String getTeamId(String team) {
     String[] result = team.split(" ");
-    char tem = 0;
+    String tem = "";
     for (int i = 0; i < result.length; i++) {
       String s = result[i];
-      tem = (char) (tem + s.charAt(0));
+      tem = tem + s.charAt(0);
     }
     return tem;
-  }
-
-
-  public boolean checkingTime(String time) {
-    return true;
   }
 }
 

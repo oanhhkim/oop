@@ -1,25 +1,24 @@
 package entity;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Bicycle {
 
   private String id;
   private String name;
   private String team;
   private String time;
-  private int position;
-  private float speed;
 
-
-  public Bicycle(String id, String name, String team, String time, float speed) {
+  public Bicycle() {
   }
 
-  public Bicycle(String id, String name, String team, String time, int position, float speed) {
+  public Bicycle(String id, String name, String team, String time) {
     this.id = id;
     this.name = name;
     this.team = team;
     this.time = time;
-    this.position = position;
-    this.speed = speed;
   }
 
   public String getId() {
@@ -54,30 +53,27 @@ public class Bicycle {
     this.time = time;
   }
 
-  public int getPosition() {
-    return position;
-  }
-
-  public void setPosition(int position) {
-    this.position = position;
-  }
-
-  public float getSpeed() {
+  public float calculateSpeed(String time) {
+    SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+    Date time_start;
+    try {
+      time_start = format.parse("07:00");
+    } catch (ParseException e) {
+      throw new RuntimeException(e);
+    }
+    Date time_finish;
+    try {
+      time_finish = format.parse(time);
+    } catch (ParseException e) {
+      throw new RuntimeException(e);
+    }
+    float speed;
+    speed = (float) 100 / ((time_finish.getTime() - time_start.getTime())/3600000);
     return speed;
-  }
-
-  public void setSpeed(float speed) {
-    this.speed = speed;
   }
 
   @Override
   public String toString() {
-    return "Bicycle{" +
-        "id='" + id + '\'' +
-        ", name='" + name + '\'' +
-        ", team='" + team + '\'' +
-        ", position=" + position +
-        ", speed=" + speed +
-        '}';
+    return id + " " + name + " " + team + " " + calculateSpeed(time);
   }
 }
